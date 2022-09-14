@@ -123,10 +123,7 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
     }
   };
 
-
-  useEffect(() => {
-    readData();
-
+  const updateData = () => {
     if (address) {
       setCitySelected({
         value: address.city,
@@ -141,11 +138,19 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
         number: address.street.number,
         complement: address.street.complement
       });
+    } else {
+      return;
     }
+  };
 
-    console.log('se ejecuta');
+  useEffect(() => {
+    readData();
+    updateData();
+
+  }, []);
+
+  useEffect(() => {
     if (citySelected.value !== '' && typeStreetSelected.value !== '' && street.street !== '' && street.number !== '' && street.complement !== '' && error.length === 0) {
-      console.log(error);
       setIsEnabledButton(false);
     } else {
       setIsEnabledButton(true);
