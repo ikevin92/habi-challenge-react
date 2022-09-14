@@ -8,7 +8,11 @@ const initialState: Property = {
   address: {
     city: '',
     typeStreet: '',
-    street: '',
+    street: {
+      street: '',
+      number: '',
+      complement: '',
+    },
   },
   nFloor: 0,
   parking: {
