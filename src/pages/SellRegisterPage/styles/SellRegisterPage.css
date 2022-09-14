@@ -1,0 +1,32 @@
+.sellregister_container {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  border: 1px solid tomato;
+}
+
+.sellregister_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid tomato;
+}
+
+.progress_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  border: 1px solid tomato;
+  color: #7c01ff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  line-height: 2.4rem;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}

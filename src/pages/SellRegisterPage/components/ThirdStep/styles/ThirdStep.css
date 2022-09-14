@@ -1,0 +1,15 @@
+.container_thirdstep {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.container_thirdstep__street {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}

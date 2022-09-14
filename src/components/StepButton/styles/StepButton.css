@@ -1,0 +1,23 @@
+.button_step {
+  background-color: rgb(124, 1, 255);
+  border: none;
+  border-radius: 100px;
+  color: rgb(255, 255, 255);
+  /* font-family: Montserrat; */
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 360px;
+  margin: 0px auto;
+  padding: 16px 0px;
+  margin-top: 10px;
+}
+
+.button_step:hover {
+  background-color: rgb(176, 103, 255);
+  cursor: pointer;
+}
+
+.disable {
+  background-color: rgb(176, 103, 255);
+  cursor: not-allowed !important;
+}

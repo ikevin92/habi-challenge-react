@@ -1,0 +1,9 @@
+.error_message {
+  color: #e51717;
+  display: inline-block;
+  font-family: Roboto;
+  font-size: 1.2rem;
+  line-height: 120%;
+  margin-top: 8px;
+  width: 100%;
+}

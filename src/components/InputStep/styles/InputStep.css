@@ -1,0 +1,32 @@
+.input_single {
+  display: flex;
+  text-align: center;
+  border-radius: 8px;
+  height: 51px;
+  font-size: 15px;
+  color: rgb(37, 33, 41);
+  padding: 0px;
+  /* min-width: 20rem; */
+  width: 100%;
+  margin: 0 auto;
+
+  border: 1px solid rgb(120, 116, 123);
+  font-family: Roboto;
+  width: 100%;
+}
+
+.label_input {
+  font-size: 15px;
+  color: rgb(37, 33, 41);
+  padding: 0px;
+  width: 25rem;
+  margin: 0 auto;
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .label_input {
+    width: 90%;
+  }
+}
