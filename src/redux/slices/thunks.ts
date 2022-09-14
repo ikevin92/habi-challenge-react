@@ -1,7 +1,7 @@
 
-import { LocalStorageTypes } from '../../models';
+import { Address, LocalStorageTypes } from '../../models';
 import { setLocalStorage } from '../../utils';
-import { setEmail, setFullName } from './property';
+import { setAddress, setEmail, setFullName } from './property';
 
 
 export const saveFullName = (fullname: string) => {
@@ -28,6 +28,21 @@ export const saveEmail = (email: string) => {
     let dataStorage = {
       ...state.property,
       email
+    };
+
+    setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
+    // setLocalStorage('property', getState());
+  };
+};
+
+export const saveAddres = (address: Address) => {
+  return async (dispatch: any, getState: any) => {
+    const state = getState();
+    dispatch(setAddress(address));
+
+    let dataStorage = {
+      ...state.property,
+      address
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);

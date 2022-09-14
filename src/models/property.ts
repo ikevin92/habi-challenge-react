@@ -1,15 +1,7 @@
 export interface Property {
   fullName: string; //1
   email: string; //2
-  address: { //3
-    city: string;
-    typeStreet: string;
-    street: {
-      street: string;
-      number: string;
-      complement: string;
-    };
-  };
+  address: Address;  //3
   nFloor: number; //4
   optionsZones?: OptionsZones[]; //5
   parking: { //6
@@ -23,3 +15,16 @@ export interface Property {
 
 // enum OptionsZones { 'Zona BBQ' | 'salón comunal' | 'parque de juegos'}
 type OptionsZones = 'Zona BBQ' | 'salón comunal' | 'Parque de juegos';
+
+
+export interface Address {
+  city: string;
+  typeStreet: string;
+  street: Street;
+}
+
+export interface Street {
+  street: string;
+  number: string;
+  complement: string;
+}

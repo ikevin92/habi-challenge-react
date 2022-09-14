@@ -1,15 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { InputStep, ErrorMessage, StepButton } from '../../../../components';
-import { useAppDispatch, AppStore, saveFullName } from '../../../../redux';
-import { validateEmail } from '../../../../utils';
 import Select from 'react-select';
-import './styles/ThirdStep.css';
+import { ErrorMessage, InputStep, StepButton } from '../../../../components';
 import { cities, typeStreetData } from '../../../../data';
-import { set } from 'immer/dist/internal';
+import { Address } from '../../../../models/property';
+import { AppStore, saveAddres, useAppDispatch } from '../../../../redux';
+import './styles/ThirdStep.css';
 
 export interface ThirdStepInterface {}
+
+interface IError {
+  isError: boolean;
+  message: string;
+  name: string;
+}
 
 
 const ThirdStep: React.FC<ThirdStepInterface> = () => {
@@ -28,11 +33,7 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
     label: 'Tipo de Via'
   });
   const [typeStreetOptions, setTypeStreetOptions] = useState([]);
-  const [error, setError] = useState([{
-    isError: false,
-    message: '',
-    name: ''
-  }]);
+  const [error, setError] = useState<IError[]>([]);
 
   const [street, setStreet] = useState({
     street: '',
@@ -41,21 +42,30 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
   });
 
   const { property } = useSelector((state: AppStore) => state);
+  const { address } = property;
+
 
   const handleClick = () => {
 
-    // dispatch(saveFullName(data.value));
-    navigate('/register/address');
+    const address: Address = {
+      city: citySelected.value,
+      street: {
+        street: street.street,
+        number: street.number,
+        complement: street.complement,
+      },
+      typeStreet: typeStreetSelected.value,
+    };
+
+    dispatch(saveAddres(address));
+    navigate('/register/number-floor');
   };
 
   const handleChangeCity = (e: any) => {
-    console.log(e);
-    // console.log(e.target.value);
     setCitySelected(e);
   };
 
   const handleChangeTypeStreet = (e: any) => {
-    console.log(e);
     setTypeStreetSelected(e);
   };
 
@@ -72,7 +82,6 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
   };
 
   const handleChange = (e: any) => {
-    console.log(`🚀 ~ file: ThirdStep.tsx ~ line 70 ~ handleChange ~ e`, e.target.value);
     setStreet((street) => {
       return {
         ...street,
@@ -95,11 +104,8 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
       });
     }
 
-
-
     if (e.target.name === 'street' || e.target.name === 'number') {
       if (e.target.value.length > 0 && isNaN(e.target.value[0])) {
-        console.log('entro');
         setError((error) => {
           if (error.find((err) => err.name === e.target.name)) {
             return error.map((err) => err.name === e.target.name ? { ...err, isError: true, message: `El campo ${ e.target.id } debe iniciar con un numero` } : err);
@@ -117,18 +123,34 @@ const ThirdStep: React.FC<ThirdStepInterface> = () => {
     }
   };
 
-  useEffect(() => {
-    readData();
-    // if (property.email) {
-    //   setData(property.email);
-    // };
-  }, []);
 
   useEffect(() => {
-    if (citySelected.value !== '' && typeStreetSelected.value !== '' && street.street !== '' && street.number !== '' && street.complement !== '' && error.length === 0) {
-      setIsEnabledButton(false);
+    readData();
+
+    if (address) {
+      setCitySelected({
+        value: address.city,
+        label: address.city
+      });
+      setTypeStreetSelected({
+        value: address.typeStreet,
+        label: address.typeStreet
+      });
+      setStreet({
+        street: address.street.street,
+        number: address.street.number,
+        complement: address.street.complement
+      });
     }
-  }, [citySelected, typeStreetSelected, street]);
+
+    console.log('se ejecuta');
+    if (citySelected.value !== '' && typeStreetSelected.value !== '' && street.street !== '' && street.number !== '' && street.complement !== '' && error.length === 0) {
+      console.log(error);
+      setIsEnabledButton(false);
+    } else {
+      setIsEnabledButton(true);
+    }
+  }, [citySelected, typeStreetSelected, street, error]);
 
 
   return (

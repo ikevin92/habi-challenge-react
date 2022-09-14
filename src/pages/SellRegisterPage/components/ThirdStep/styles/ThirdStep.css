@@ -5,6 +5,15 @@
   gap: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .container_thirdstep {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .container_thirdstep__street {
   margin-top: 10px;
   display: flex;
