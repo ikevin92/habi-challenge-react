@@ -21,7 +21,7 @@ const initialState: Property = {
   },
   optionsZones: [],
   price: 0,
-  photo: '',
+  photo: null,
   hasAnElevator: false
 };
 

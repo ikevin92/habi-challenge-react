@@ -55,8 +55,6 @@ export const validatePrice = (price: number) => {
     };
   }
 
-
-
   return {
     isValid: true,
     message: ''

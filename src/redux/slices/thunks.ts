@@ -1,7 +1,7 @@
 
 import { Address, LocalStorageTypes } from '../../models';
 import { setLocalStorage } from '../../utils';
-import { setAddress, setEmail, setFullName, setNFloor, setOptionsZones, setParking, setPrice } from './property';
+import { setAddress, setEmail, setFullName, setNFloor, setOptionsZones, setParking, setPhoto, setPrice } from './property';
 import { OptionsZones, Parking } from '../../models/property';
 
 
@@ -107,6 +107,26 @@ export const savePrice = (price: number) => {
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
+    // setLocalStorage('property', getState());
+  };
+};
+
+export const savePhoto = (photo: any) => {
+  return async (dispatch: any, getState: any) => {
+    const state = getState();
+    console.log(photo);
+
+    // let img = new Image();
+    dispatch(setPhoto(photo));
+
+    let dataStorage = {
+      ...state.property,
+      photo
+    };
+    console.log(`🚀 ~ file: thunks.ts ~ line 124 ~ return ~ dataStorage`, dataStorage);
+
+    // setLocalStorage('Imagen', photo);
+    sessionStorage.setItem('Imagen', photo);
     // setLocalStorage('property', getState());
   };
 };

@@ -6,7 +6,7 @@ export interface Property {
   optionsZones?: OptionsZones[]; //5
   parking: Parking;  //6
   price: number; //7
-  photo?: string; //8
+  photo?: any; //8
   hasAnElevator: boolean; //9
 }
 

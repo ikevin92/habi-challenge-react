@@ -33,7 +33,7 @@ const SevenStep: React.FC<SevenStepInterface> = () => {
 
     setError({ isError: false, message: '' });
     dispatch(savePrice(value));
-    // navigate('/register/options-zones');
+    navigate('/register/photo');
   };
 
   const handleChange = (e: any) => {
@@ -92,7 +92,7 @@ const SevenStep: React.FC<SevenStepInterface> = () => {
 
         <StepButton
           handleClick={ handleClick }
-          text={ 'Vamos al quinto paso' } />
+          text={ 'Vamos al octavo paso' } />
       </div>
     </div>
 
