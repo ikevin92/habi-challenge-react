@@ -1,5 +1,5 @@
 import { IRoutes } from '.';
-import { EightStep, FirstStep, FiveStep, FourthStep, SecondStep, SevenStep, SixStep, ThirdStep } from '../pages';
+import { EightStep, FirstStep, FiveStep, FourthStep, SecondStep, SevenStep, SixStep, ThirdStep, NineStep } from '../pages';
 
 export const sellRoutes: IRoutes[] = [
   {
@@ -61,7 +61,7 @@ export const sellRoutes: IRoutes[] = [
   {
     pathParent: '/register',
     path: '/has-elevator',
-    component: FiveStep,
+    component: NineStep,
     step: 9,
     name: 'Ascensor'
   },

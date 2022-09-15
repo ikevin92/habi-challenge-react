@@ -1,8 +1,8 @@
 
 import { Address, LocalStorageTypes } from '../../models';
 import { setLocalStorage } from '../../utils';
-import { setAddress, setEmail, setFullName, setNFloor, setOptionsZones, setParking, setPhoto, setPrice } from './property';
-import { OptionsZones, Parking } from '../../models/property';
+import { setAddress, setEmail, setFullName, setHasAnElevator, setNFloor, setOptionsZones, setParking, setPhoto, setPrice } from './property';
+import { OptionsZones, Parking, Property } from '../../models/property';
 
 
 export const saveFullName = (fullname: string) => {
@@ -10,13 +10,12 @@ export const saveFullName = (fullname: string) => {
     const state = getState();
     dispatch(setFullName(fullname));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       fullName: fullname
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -26,13 +25,12 @@ export const saveEmail = (email: string) => {
     const state = getState();
     dispatch(setEmail(email));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       email
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -41,13 +39,12 @@ export const saveAddres = (address: Address) => {
     const state = getState();
     dispatch(setAddress(address));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       address
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -56,13 +53,12 @@ export const saveNumberFloor = (nFloor: number | string) => {
     const state = getState();
     dispatch(setNFloor(nFloor));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       nFloor
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -71,13 +67,12 @@ export const saveOptionsZones = (optionsZones: OptionsZones[]) => {
     const state = getState();
     dispatch(setOptionsZones(optionsZones));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       optionsZones
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -86,13 +81,12 @@ export const saveParking = (parking: Parking) => {
     const state = getState();
     dispatch(setParking(parking));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       parking
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -101,13 +95,12 @@ export const savePrice = (price: number) => {
     const state = getState();
     dispatch(setPrice(price));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       price
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
-    // setLocalStorage('property', getState());
   };
 };
 
@@ -119,7 +112,7 @@ export const savePhoto = (photo: any) => {
     // let img = new Image();
     dispatch(setPhoto(photo));
 
-    let dataStorage = {
+    let dataStorage: Property = {
       ...state.property,
       photo
     };
@@ -127,6 +120,20 @@ export const savePhoto = (photo: any) => {
 
     // setLocalStorage('Imagen', photo);
     sessionStorage.setItem('Imagen', photo);
-    // setLocalStorage('property', getState());
+  };
+};
+
+
+export const saveElevator = (elevator: boolean) => {
+  return async (dispatch: any, getState: any) => {
+    const state = getState();
+    dispatch(setHasAnElevator(elevator));
+
+    let dataStorage: Property = {
+      ...state.property,
+      hasAnElevator: elevator
+    };
+
+    setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
   };
 };

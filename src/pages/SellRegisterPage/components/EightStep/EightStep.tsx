@@ -59,6 +59,7 @@ const EightStep: React.FC<EightStepInterface> = () => {
 
     // dispatch(savePhoto(image as File));
     dispatch(savePhoto(preview));
+    navigate('/register/has-elevator');
 
   };
 
@@ -97,18 +98,6 @@ const EightStep: React.FC<EightStepInterface> = () => {
   return (
     <div className='container_step'>
       <div className='form_single_step'>
-        {/* <InputStep
-            // label={ 'Precio*' }
-            handleChange={ (e: any) => handleChange(e) }
-            value={ value }
-            style={ { width: '100%' } }
-            type="file"
-            name="photo"
-            id="photo"
-            placeholder='1000000'
-            otherProps={ { min: 1000000, max: 2000000000, step: 1 } }
-          />
-        </div> */}
         <div className='container'>
           <form>
             { preview ? (
