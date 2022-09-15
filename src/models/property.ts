@@ -14,7 +14,7 @@ export interface Property {
 }
 
 // enum OptionsZones { 'Zona BBQ' | 'salón comunal' | 'parque de juegos'}
-type OptionsZones = 'Zona BBQ' | 'salón comunal' | 'Parque de juegos';
+export type OptionsZones = 'Zona BBQ' | 'Salón comunal' | 'Parque de juegos';
 
 
 export interface Address {

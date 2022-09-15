@@ -23,7 +23,7 @@ const SellRegisterPage: React.FC<SellRegisterPageInterface> = ({ children }) => 
     <div className='sellregister_container'>
       <div className='sellregister_form' >
         <div className='progress_info'>
-          Paso { numberStep } de 10: Datos Cliente
+          Paso { numberStep } de 10: { sellRoutes[numberStep - 1].name }
         </div>
 
         { children }

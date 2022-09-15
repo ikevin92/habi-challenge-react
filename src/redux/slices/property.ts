@@ -60,6 +60,6 @@ export const propertySlice = createSlice({
   },
 });
 
-export const { setFullName, setEmail, setAddress, setNFloor, setPrice, setPhoto, setHasAnElevator } = propertySlice.actions;
+export const { setFullName, setEmail, setAddress, setNFloor, setPrice, setPhoto, setHasAnElevator, setOptionsZones } = propertySlice.actions;
 
 export default propertySlice.reducer;

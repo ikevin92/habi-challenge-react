@@ -33,7 +33,7 @@ const FourthStep: React.FC<FourthStepInterface> = () => {
 
     setError({ isError: false, message: '' });
     dispatch(saveNumberFloor(value));
-    navigate('/register/opstions-zones');
+    navigate('/register/options-zones');
   };
 
   const handleChange = (e: any) => {
@@ -42,8 +42,8 @@ const FourthStep: React.FC<FourthStepInterface> = () => {
   };
 
   useEffect(() => {
-    if (property.email) {
-      setValue(property.email);
+    if (property.nFloor) {
+      setValue(property.nFloor.toString());
     };
   }, []);
 

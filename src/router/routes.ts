@@ -32,7 +32,7 @@ export const sellRoutes: IRoutes[] = [
   },
   {
     pathParent: '/register',
-    path: '/opstions-zones',
+    path: '/options-zones',
     component: FiveStep,
     step: 5,
     name: 'Zonas Opcionales'

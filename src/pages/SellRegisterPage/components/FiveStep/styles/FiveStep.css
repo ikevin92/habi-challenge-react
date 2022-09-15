@@ -1,3 +1,10 @@
-.FiveStep {
-
+.container_checkbox {
+  display: flex;
+  /* align-self: center; */
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 20px;
+  flex-direction: row;
+  padding: 3px;
 }

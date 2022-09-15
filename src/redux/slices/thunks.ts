@@ -1,7 +1,8 @@
 
 import { Address, LocalStorageTypes } from '../../models';
 import { setLocalStorage } from '../../utils';
-import { setAddress, setEmail, setFullName, setNFloor } from './property';
+import { setAddress, setEmail, setFullName, setNFloor, setOptionsZones } from './property';
+import { OptionsZones } from '../../models/property';
 
 
 export const saveFullName = (fullname: string) => {
@@ -65,3 +66,17 @@ export const saveNumberFloor = (nFloor: number | string) => {
   };
 };
 
+export const saveOptionsZones = (optionsZones: OptionsZones[]) => {
+  return async (dispatch: any, getState: any) => {
+    const state = getState();
+    dispatch(setOptionsZones(optionsZones));
+
+    let dataStorage = {
+      ...state.property,
+      optionsZones
+    };
+
+    setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
+    // setLocalStorage('property', getState());
+  };
+};
