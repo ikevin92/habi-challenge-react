@@ -8,7 +8,7 @@ export interface InputStepInterface {
   type: TInputStepType;
   name: string;
   id: string;
-  placeholder: string;
+  placeholder?: string;
   label?: string;
   style?: React.CSSProperties | undefined;
   otherProps?: React.InputHTMLAttributes<HTMLInputElement>;

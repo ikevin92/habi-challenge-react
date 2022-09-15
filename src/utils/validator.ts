@@ -36,5 +36,29 @@ export const validateNFloor = (nFloor: number | string) => {
     isValid: true,
     message: ''
   };
+};
 
+
+export const validatePrice = (price: number) => {
+
+  if (isNaN(Number(price))) {
+    return {
+      isValid: false,
+      message: 'El precio debe ser un número'
+    };
+  }
+
+  if (price < 1000000 || price > 2000000000) {
+    return {
+      isValid: false,
+      message: 'El precio debe ser mayor a 1000000 y menor a 2000000000'
+    };
+  }
+
+
+
+  return {
+    isValid: true,
+    message: ''
+  };
 };

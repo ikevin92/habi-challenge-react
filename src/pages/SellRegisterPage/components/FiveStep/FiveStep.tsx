@@ -59,8 +59,8 @@ const FiveStep: React.FC<FiveStepInterface> = () => {
                 value={ option.value }
                 style={ { width: '30px', display: 'flex', padding: '5px' } }
                 type="checkbox"
-                name="number_floor"
-                id="numero_piso"
+                name="option_zone"
+                id="option_zone"
                 placeholder='5'
                 otherProps={ { checked: value?.includes(option.value as any) } }
               />
@@ -79,7 +79,7 @@ const FiveStep: React.FC<FiveStepInterface> = () => {
 
         <StepButton
           handleClick={ handleClick }
-          text={ 'Vamos al quinto paso' } />
+          text={ 'Vamos al sexto paso' } />
       </div>
     </div>
 

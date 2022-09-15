@@ -4,10 +4,7 @@ export interface Property {
   address: Address;  //3
   nFloor: number; //4
   optionsZones?: OptionsZones[]; //5
-  parking: { //6
-    isCovered: boolean;
-    hasPaking: boolean;
-  };
+  parking: Parking;  //6
   price: number; //7
   photo?: string; //8
   hasAnElevator: boolean; //9
@@ -27,4 +24,9 @@ export interface Street {
   street: string;
   number: string;
   complement: string;
+}
+
+export interface Parking {
+  isCovered: boolean;
+  hasParking: boolean;
 }

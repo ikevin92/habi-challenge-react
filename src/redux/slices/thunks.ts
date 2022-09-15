@@ -1,8 +1,8 @@
 
 import { Address, LocalStorageTypes } from '../../models';
 import { setLocalStorage } from '../../utils';
-import { setAddress, setEmail, setFullName, setNFloor, setOptionsZones } from './property';
-import { OptionsZones } from '../../models/property';
+import { setAddress, setEmail, setFullName, setNFloor, setOptionsZones, setParking, setPrice } from './property';
+import { OptionsZones, Parking } from '../../models/property';
 
 
 export const saveFullName = (fullname: string) => {
@@ -74,6 +74,36 @@ export const saveOptionsZones = (optionsZones: OptionsZones[]) => {
     let dataStorage = {
       ...state.property,
       optionsZones
+    };
+
+    setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
+    // setLocalStorage('property', getState());
+  };
+};
+
+export const saveParking = (parking: Parking) => {
+  return async (dispatch: any, getState: any) => {
+    const state = getState();
+    dispatch(setParking(parking));
+
+    let dataStorage = {
+      ...state.property,
+      parking
+    };
+
+    setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);
+    // setLocalStorage('property', getState());
+  };
+};
+
+export const savePrice = (price: number) => {
+  return async (dispatch: any, getState: any) => {
+    const state = getState();
+    dispatch(setPrice(price));
+
+    let dataStorage = {
+      ...state.property,
+      price
     };
 
     setLocalStorage(LocalStorageTypes.PROPERTY, dataStorage);

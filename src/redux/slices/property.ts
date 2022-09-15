@@ -17,7 +17,7 @@ const initialState: Property = {
   nFloor: 0,
   parking: {
     isCovered: false,
-    hasPaking: false,
+    hasParking: false,
   },
   optionsZones: [],
   price: 0,
@@ -60,6 +60,6 @@ export const propertySlice = createSlice({
   },
 });
 
-export const { setFullName, setEmail, setAddress, setNFloor, setPrice, setPhoto, setHasAnElevator, setOptionsZones } = propertySlice.actions;
+export const { setFullName, setEmail, setAddress, setNFloor, setPrice, setPhoto, setHasAnElevator, setOptionsZones, setParking } = propertySlice.actions;
 
 export default propertySlice.reducer;

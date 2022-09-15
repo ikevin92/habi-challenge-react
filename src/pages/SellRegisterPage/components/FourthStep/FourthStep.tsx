@@ -12,7 +12,7 @@ const FourthStep: React.FC<FourthStepInterface> = () => {
   const { property } = useSelector((state: AppStore) => state);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(0);
   const [error, setError] = useState({
     isError: false,
     message: '',
@@ -38,12 +38,17 @@ const FourthStep: React.FC<FourthStepInterface> = () => {
 
   const handleChange = (e: any) => {
     console.log(e.target.value);
+    let floor = e.target.value;
+    if (Number(floor) < 0) {
+      setValue(0);
+      return;
+    }
     setValue(e.target.value);
   };
 
   useEffect(() => {
     if (property.nFloor) {
-      setValue(property.nFloor.toString());
+      setValue(property.nFloor);
     };
   }, []);
 
