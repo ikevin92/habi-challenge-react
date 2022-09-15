@@ -39,8 +39,8 @@ export const propertySlice = createSlice({
     setAddress: (state, action) => {
       state.address = action.payload;
     },
-    setNStories: (state, action) => {
-      state.nStories = action.payload;
+    setNFloor: (state, action) => {
+      state.nFloor = action.payload;
     },
     setPrice: (state, action) => {
       state.price = action.payload;
@@ -60,6 +60,6 @@ export const propertySlice = createSlice({
   },
 });
 
-export const { setFullName, setEmail, setAddress, setNStories, setPrice, setPhoto, setHasAnElevator } = propertySlice.actions;
+export const { setFullName, setEmail, setAddress, setNFloor, setPrice, setPhoto, setHasAnElevator } = propertySlice.actions;
 
 export default propertySlice.reducer;

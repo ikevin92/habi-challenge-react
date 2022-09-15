@@ -11,11 +11,13 @@ export interface InputStepInterface {
   placeholder: string;
   label?: string;
   style?: React.CSSProperties | undefined;
+  otherProps?: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 const InputStep: React.FC<InputStepInterface> = (props) => {
   const { handleChange, value, type, name, id, label,
-    placeholder, style } = props;
+    placeholder, style, otherProps } = props;
+
 
   return (
 
@@ -23,6 +25,7 @@ const InputStep: React.FC<InputStepInterface> = (props) => {
       style={ style }
       className='label_input' htmlFor={ name }>{ label }
       <input
+        { ...otherProps }
         onChange={ handleChange }
         value={ value }
         type={ type }
