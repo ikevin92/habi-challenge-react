@@ -72,6 +72,13 @@ const Resume: React.FC<ResumeInterface> = () => {
           }
         </div>
 
+        <div className='info_container'>
+          {
+            property.photo &&
+            <img className='image' src={ property.photo } alt="imagen" />
+          }
+        </div>
+
 
       </div>
     </div>

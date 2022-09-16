@@ -1,7 +1,7 @@
 .container_homepage {
   width: 100%;
   height: 100vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-image: url("../../../assets/apartamento.jpg");
   background-size: cover;
   margin: 0 auto;
