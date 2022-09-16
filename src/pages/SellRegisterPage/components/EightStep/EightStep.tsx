@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { useState, useEffect, useRef } from 'react';
+import compress from 'compress-base64';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { InputStep, ErrorMessage, StepButton } from '../../../../components';
-import { AppStore, useAppDispatch, savePrice, savePhoto } from '../../../../redux';
-import { validatePrice } from '../../../../utils';
+import { ErrorMessage, StepButton } from '../../../../components';
+import { AppStore, savePhoto, useAppDispatch } from '../../../../redux';
 import './styles/EightStep.css';
+
 
 export interface EightStepInterface {}
 
@@ -32,32 +32,6 @@ const EightStep: React.FC<EightStepInterface> = () => {
       image
     });
 
-    let stringImg = JSON.stringify(image);
-    console.log(`🚀 ~ file: EightStep.tsx ~ line 36 ~ handleClick ~ stringImg`, stringImg);
-
-    // const url = `${ window.location.origin }/uploadFile`;
-    // const formData = new FormData();
-    // console.log(`🚀 ~ file: EightStep.tsx ~ line 35 ~ handleClick ~ formData`, formData);
-    // formData.append('file', image as File);
-    // formData.append('fileName', image?.name as any);
-
-    // const config = {
-    //   headers: {
-    //     'content-type': 'multipart/form-data',
-    //   },
-    // };
-
-    // try {
-    //   const response = await axios.post(url, formData, config);
-    //   console.log(`🚀 ~ file: EightStep.tsx ~ line 47 ~ handleClick ~ response`, response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-
-
-
-
-    // dispatch(savePhoto(image as File));
     dispatch(savePhoto(preview));
     navigate('/register/has-elevator');
 
@@ -66,6 +40,7 @@ const EightStep: React.FC<EightStepInterface> = () => {
   const handleChange = (event: any) => {
 
     console.log(event.target.value);
+    console.log(event.target.result);
     setValue(event.target.value);
 
 
@@ -100,10 +75,10 @@ const EightStep: React.FC<EightStepInterface> = () => {
       <div className='form_single_step'>
         <div className='container'>
           <form>
-            { preview ? (
+            { preview || property.photo ? (
               <img
                 className='img'
-                src={ preview }
+                src={ preview || property.photo }
                 style={ { objectFit: "cover" } }
                 onClick={ () => {
                   setImage(null);
