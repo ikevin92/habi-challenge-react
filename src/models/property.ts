@@ -3,7 +3,7 @@ export interface Property {
   email: string; //2
   address: Address;  //3
   nFloor: number; //4
-  optionsZones?: OptionsZones[]; //5
+  optionsZones?: string[]; //5
   parking: Parking;  //6
   price: number; //7
   photo?: any; //8
@@ -11,7 +11,7 @@ export interface Property {
 }
 
 // enum OptionsZones { 'Zona BBQ' | 'salón comunal' | 'parque de juegos'}
-export type OptionsZones = 'Zona BBQ' | 'Salón comunal' | 'Parque de juegos';
+// export type OptionsZones = 'Zona BBQ' | 'Salón comunal' | 'Parque de juegos';
 
 
 export interface Address {

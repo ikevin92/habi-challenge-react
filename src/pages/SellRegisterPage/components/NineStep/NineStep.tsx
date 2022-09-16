@@ -22,7 +22,7 @@ const NineStep: React.FC<NineStepInterface> = () => {
 
     console.log(value);
     dispatch(saveElevator(value));
-    // navigate('/register/resume');
+    navigate('/register/resume');
   };
 
   const handleChange = (e: any) => {
